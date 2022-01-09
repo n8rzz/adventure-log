@@ -7,8 +7,9 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require 'rspec/rails'
 
 require 'database_cleaner/active_record'
-require_relative 'support/factory_bot'
 require_relative 'support/chrome'
+require_relative 'support/factory_bot'
+require_relative 'support/shoulda_matchers'
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
