@@ -1,1 +1,7 @@
 <h1>StaticPages#index</h1>
+
+<% if current_user %>
+  <h3><%= current_user.name %></h3>
+  <h3><%= current_user.email %></h3>
+  <%= image_tag(current_user.image_url) unless current_user.image_url.nil? %>
+<% end %>

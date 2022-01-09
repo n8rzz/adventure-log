@@ -33,9 +33,10 @@ class DeviseCreateUsers < ActiveRecord::Migration[7.0]
       # t.datetime :locked_at
 
       ## Omiauth
-      t.string :proivder
+      t.string :name
+      t.string :provider
+      t.string :image_url
       t.string :uid
-
 
       t.timestamps null: false
     end

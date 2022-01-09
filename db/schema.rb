@@ -26,7 +26,9 @@ ActiveRecord::Schema.define(version: 2022_01_09_060129) do
     t.datetime "last_sign_in_at", precision: 6
     t.string "current_sign_in_ip"
     t.string "last_sign_in_ip"
-    t.string "proivder"
+    t.string "name"
+    t.string "provider"
+    t.string "image_url"
     t.string "uid"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
