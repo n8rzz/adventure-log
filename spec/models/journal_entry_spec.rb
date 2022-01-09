@@ -16,8 +16,8 @@ RSpec.describe JournalEntry, type: :model do
 
   subject { @journal_entry }
 
-  # describe 'validations' do
-  #   it { should validate_presence_of(:email) }
-  #   it { should validate_presence_of(:password) }
-  # end
+  describe 'validations' do
+    it { should validate_presence_of(:body) }
+    it { should validate_presence_of(:entry_date) }
+  end
 end
