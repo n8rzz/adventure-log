@@ -1,11 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe "journal_entries/show", type: :view do
+  let(:user) { create(:user) }
+
   before(:each) do
-    @journal_entry = assign(:journal_entry, JournalEntry.create!(
-      body: "MyText",
-      user: nil
-    ))
+    @journal_entry = create(:journal_entry, user: user)
   end
 
   it "renders attributes in <p>" do

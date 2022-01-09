@@ -1,7 +1,8 @@
 FactoryBot.define do
   factory :journal_entry do
-    body { "MyText" }
-    entry_date { Date.now }
-    user { nil }
+    body { Faker::Games::Myst.quote }
+    entry_date { DateTime.now() }
+
+    user
   end
 end

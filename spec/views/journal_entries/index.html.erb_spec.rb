@@ -1,17 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe "journal_entries/index", type: :view do
+  let(:user) { create(:user) }
+
   before(:each) do
-    assign(:journal_entries, [
-      JournalEntry.create!(
-        body: "MyText",
-        user: nil
-      ),
-      JournalEntry.create!(
-        body: "MyText",
-        user: nil
-      )
-    ])
+    assign(:journal_entries, create_list(:journal_entry))
   end
 
   it "renders a list of journal_entries" do
