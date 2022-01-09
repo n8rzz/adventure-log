@@ -2,7 +2,7 @@
   <% if user_signed_in? %>
     <ul class="header-nav">
       <li class="header-nav-item">
-        header-nav-item
+        <%= link_to 'Entires', journal_entries_path, class: "link" %>
       </li>
     </ul>
 
