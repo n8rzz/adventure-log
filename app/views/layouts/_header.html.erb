@@ -1,5 +1,5 @@
 <header class="header">
-  <%# if user_signed_in? %>
+  <% if user_signed_in? %>
     <ul class="header-nav">
       <li class="header-nav-item">
         <%= link_to 'Entires', journal_entries_path, class: "link" %>
@@ -11,8 +11,14 @@
         <%= link_to 'Profile', edit_user_registration_path, class: "link" %>
       </li>
       <li class="header-nav-item">
-        <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "link" %>
+        <%= link_to 'Logout', destroy_user_session_path, class: "link" %>
       </li>
     </ul>
-  <%# end %>
+  <% else %>
+    <ul class="header-nav-user">
+      <li class="header-nav-item">
+        <%= link_to 'Login', new_user_session_path, class: "link" %>
+      </li>
+    </ul>
+  <% end %>
 </header>
