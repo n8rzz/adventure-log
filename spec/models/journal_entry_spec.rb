@@ -6,7 +6,7 @@ RSpec.describe JournalEntry, type: :model do
   end
 
   describe 'data and associations' do
-    it { should have_db_column(:body) }
+    it { should have_db_column(:body).of_type(:text) }
     it { should have_db_column(:entry_date) }
   end
 
