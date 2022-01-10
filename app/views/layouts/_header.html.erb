@@ -1,24 +1,17 @@
-<header class="header">
-  <% if user_signed_in? %>
-    <ul class="header-nav">
-      <li class="header-nav-item">
-        <%= link_to 'Entires', journal_entries_path, class: "link" %>
-      </li>
-    </ul>
+<header class="flex justify-between py-6 px-4">
+  <%= link_to root_path, class: "hover:text-orange-600" do %>
+    <h1>Adventure Log</h1>
+  <% end %>
 
-    <ul class="header-nav-user">
-      <li class="header-nav-item">
-        <%= link_to 'Profile', edit_user_registration_path, class: "link" %>
-      </li>
-      <li class="header-nav-item">
-        <%= link_to 'Logout', destroy_user_session_path, class: "link" %>
-      </li>
-    </ul>
+  <% if user_signed_in? %>
+    <nav class="flex items-start justify-end">
+      <%= link_to 'Entires', journal_entries_path, class: "px-2 px-1 hover:text-orange-600" %>
+      <%= link_to 'Profile', edit_user_registration_path, class: "px-2 px-1 hover:text-orange-600" %>
+      <%= link_to 'Logout', destroy_user_session_path, class: "px-2 px-1 hover:text-orange-600" %>
+    </nav>
   <% else %>
-    <ul class="header-nav-user">
-      <li class="header-nav-item">
-        <%= link_to 'Login', new_user_session_path, class: "link" %>
-      </li>
-    </ul>
+    <nav>
+      <%= link_to 'Login', new_user_session_path, class: "px-2 px-1 hover:text-orange-600" %>
+    </nav>
   <% end %>
 </header>
