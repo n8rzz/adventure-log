@@ -1,29 +1,42 @@
-<h2>Sign up</h2>
+<div class="mt-10 lg:mt-30">
+  <section class="contianer mx-auto px-6">
+    <div class="w-full lg:flex items-center">
+      <div class="w-full lg:w-1/2">
+        <h2 class="text-md lg:text-2xl text-gray-600">Cheeky sub-title above the title</h2>
+        <h1 class="text-5xl lg:text-6xl font-bold text-teal-600 mb-2 lg:mb-6">Awesome Title!</h1>
+        <p class="text-md lg:text-xl font-light text-gray-800 mb-8">Short amount of copy to support the Awesome Title! Becuase the title and sub-title together are both awesome, we want to be sure to make sure that you know so.</p>
+      </div>
+      <div class="w-full lg:w-1/2 lg:pl-24">
+        <div class="bg-gray-100 shadow-sm rounded-md p-8">
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+            <%= render "devise/shared/error_messages", resource: resource %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+            <div class="mb-6">
+              <%= f.label :email, class: 'mb-2 block text-gray-700' %>
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'bg-white rounded-md border border-gray-200 p-3 focus:outline-none w-full' %>
+            </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+            <div class="mb-6">
+              <%= f.label :password, class: 'mb-2 block text-gray-700' %>
+              <%= f.password_field :password, autocomplete: "new-password", class: 'bg-white rounded-md border border-gray-200 p-3 focus:outline-none w-full' %>
+              <% if @minimum_password_length %>
+                <em class="text-sm mt-2 inline-block">(<%= @minimum_password_length %> characters minimum)</em>
+              <% end %>
+            </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+            <div class="mb-6">
+              <%= f.label :password_confirmation, class: 'mb-2 block text-gray-700' %>
+              <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'bg-white rounded-md border border-gray-200 p-3 focus:outline-none w-full' %>
+            </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+            <div class="mb-8">
+              <%= f.submit "Sign up", class: 'py-3 px-12 bg-teal-500 hover:bg-green-600 mr-5 hover:cursor-pointer rounded-md text-white text-lg focus:outline-none w-full' %>
+            </div>
+          <% end %>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+          <%= render "devise/shared/links" %>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
