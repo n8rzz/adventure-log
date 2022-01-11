@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_many :journal_entries
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable,
   devise :database_authenticatable, :registerable, :recoverable, :rememberable,
