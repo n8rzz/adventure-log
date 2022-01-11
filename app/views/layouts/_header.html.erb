@@ -1,17 +1,23 @@
-<header class="flex justify-between py-6 px-4">
-  <%= link_to root_path, class: "hover:text-orange-600" do %>
-    <h1>Adventure Log</h1>
-  <% end %>
+<header class="text-gray-600 body-font">
+  <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+    <%= link_to root_path, class:"flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0" do %>
+      <span class="ml-3 text-xl">Adventure Log</span>
+    <% end %>
 
-  <% if user_signed_in? %>
-    <nav class="flex items-start justify-end">
-      <%= link_to 'Entires', journal_entries_path, class: "px-2 px-1 hover:text-orange-600" %>
-      <%= link_to 'Profile', edit_user_registration_path, class: "px-2 px-1 hover:text-orange-600" %>
-      <%= link_to 'Logout', destroy_user_session_path, class: "px-2 px-1 hover:text-orange-600" %>
-    </nav>
-  <% else %>
-    <nav>
-      <%= link_to 'Login', new_user_session_path, class: "px-2 px-1 hover:text-orange-600" %>
-    </nav>
-  <% end %>
+      <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
+        <% if user_signed_in? %>
+            <%= link_to 'Entires', journal_entries_path, class: "mr-5 hover:text-gray-900" %>
+            <%= link_to 'Profile', edit_user_registration_path, class: "mr-5 hover:text-gray-900" %>
+        <% else %>
+            <%= link_to 'Features', root_path, class: "mr-5 hover:text-gray-900" %>
+            <%= link_to 'About Us', root_path, class: "mr-5 hover:text-gray-900" %>
+        <% end %>
+      </nav>
+
+    <% if user_signed_in? %>
+      <%= link_to 'Logout', destroy_user_session_path, class: "inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0" %>
+    <% else %>
+      <%= link_to 'Login', new_user_session_path, class: "inline-flex items-center justify-end bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0" %>
+    <% end %>
+  </div>
 </header>
