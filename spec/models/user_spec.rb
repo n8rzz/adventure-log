@@ -20,6 +20,7 @@ RSpec.describe User, type: :model do
     it { should have_db_column(:last_sign_in_ip) }
     it { should have_db_index(:email) }
     it { should have_db_index(:reset_password_token) }
+    it { should have_many(:journal_entries) }
   end
 
   before do

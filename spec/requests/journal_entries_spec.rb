@@ -5,6 +5,14 @@ RSpec.describe "/journal_entries", type: :request do
   let(:valid_attributes) { attributes_for(:journal_entry, user_id: user.id) }
   let(:invalid_attributes) { attributes_for(:journal_entry, entry_date: nil, user_id: user.id) }
 
+  before do
+    login_as user, scope: :user
+  end
+
+  after do
+    logout user
+  end
+
   describe "GET /index" do
     it "renders a successful response" do
       JournalEntry.create! valid_attributes

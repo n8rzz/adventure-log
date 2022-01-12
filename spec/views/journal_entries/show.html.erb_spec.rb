@@ -9,6 +9,7 @@ RSpec.describe "journal_entries/show", type: :view do
 
   it "renders attributes in <p>" do
     render
+
     expect(rendered).to match(/journal entry body/)
   end
 end

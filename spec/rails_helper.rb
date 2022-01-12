@@ -7,6 +7,7 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require 'rspec/rails'
 
 require 'database_cleaner/active_record'
+require 'devise'
 require_relative 'support/chrome'
 require_relative 'support/factory_bot'
 require_relative 'support/shoulda_matchers'
@@ -66,4 +67,9 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+
+  config.include Devise::TestHelpers, type: :controller
+  config.include Devise::Test::IntegrationHelpers, type: :feature
+  config.include Warden::Test::Helpers
+  config.include Rails.application.routes.url_helpers
 end

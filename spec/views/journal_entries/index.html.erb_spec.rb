@@ -1,14 +1,24 @@
 require 'rails_helper'
 
 RSpec.describe "journal_entries/index", type: :view do
-  # FIXME: make view specs work!
-  # before(:each) do
-  #   assign(:journal_entries, create_list(:journal_entry, 2))
-  # end
+  let(:user) { create(:user) }
+  let(:other_user) { create(:user) }
 
-  # it "renders a list of journal_entries" do
-  #   render
-  #   assert_select "tr>td", text: "MyText".to_s, count: 2
-  #   assert_select "tr>td", text: nil.to_s, count: 2
-  # end
+  before do
+    login_as user, scope: :user
+  end
+
+  before(:each) do
+    assign(:journal_entries, [
+      assign(:journal_entry, body: 'First Entry', user_id: user.id),
+      assign(:journal_entry, body: 'Second Entry', user_id: user.id),
+    ])
+  end
+
+  it "renders a list of journal_entries" do
+    render
+
+    expect(rendered).to match(/First Entry/)
+    expect(rendered).to match(/Second Entry/)
+  end
 end
