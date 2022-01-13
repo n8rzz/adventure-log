@@ -12,7 +12,7 @@ class JournalEntriesController < ApplicationController
 
   # GET /journal_entries/new
   def new
-    @journal_entry = JournalEntry.new
+    @journal_entry = current_user.journal_entries.new
   end
 
   # GET /journal_entries/1/edit
@@ -21,7 +21,7 @@ class JournalEntriesController < ApplicationController
 
   # POST /journal_entries
   def create
-    @journal_entry = JournalEntry.new(journal_entry_params)
+    @journal_entry = current_user.journal_entries.new(journal_entry_params)
 
     if @journal_entry.save
       redirect_to @journal_entry, notice: "Journal entry was successfully created."
@@ -53,6 +53,6 @@ class JournalEntriesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def journal_entry_params
-      params.require(:journal_entry).permit(:body, :entry_date, :user_id)
+      params.require(:journal_entry).permit(:body, :entry_date)
     end
 end

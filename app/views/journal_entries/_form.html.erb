@@ -11,22 +11,17 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :body, style: "display: block" %>
-    <%= form.text_area :body %>
-  </div>
-
-  <div>
-    <%= form.label :entry_date, style: "display: block" %>
+  <div class="mb-6">
+    <%= form.label :entry_date, class: "mb-2 block text-gray-700" %>
     <%= form.datetime_field :entry_date %>
   </div>
 
-  <div>
-    <%= form.label :user_id, style: "display: block" %>
-    <%= form.text_field :user_id %>
+  <div class="mb-6">
+    <%= form.label :body, class: "mb-2 block text-gray-700" %>
+    <%= form.text_area :body, class: "bg-white rounded-md border border-gray-200 p-3 focus:outline-none w-full" %>
   </div>
 
-  <div>
+  <div class="mb-6">
     <%= form.submit %>
   </div>
 <% end %>
